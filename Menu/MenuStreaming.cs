@@ -14,6 +14,7 @@ public class MenuStreaming
 
             Console.WriteLine("\n----Menu Streaming-----");
             Console.WriteLine("------1. Ver Catalogo----");
+            Console.WriteLine("------2. Busca por titulo----");
             Console.WriteLine("------0. Salir-----------");
             Console.WriteLine("Selecciona una opción:");
 
@@ -29,6 +30,9 @@ public class MenuStreaming
                 case 1:
                 MostrarCatalogo();
                     break;
+                case 2:
+                BuscarPorTitulo();
+                break;
 
                 case 0:
                     Console.WriteLine("¡Hasta pronto!");
@@ -54,6 +58,25 @@ public class MenuStreaming
         foreach (Contenido c in catalogo)
         {
             Console.WriteLine(c.ObtenerDescripcion());
+        }
+    }
+
+    public void BuscarPorTitulo()
+    {
+        string textoBusqueda = Console.ReadLine().ToLower();
+        bool encontrado = false;
+        foreach(Contenido c in catalogo)
+        {
+            if (c.Titulo.ToLower().Contains(textoBusqueda))
+            {
+                Console.WriteLine("\nContenido encontrado:");
+                Console.WriteLine($"{c.Titulo} - {c.Duracion} minutos");
+                encontrado = true;
+            }
+        }
+        if (!encontrado)
+        {
+            Console.WriteLine("\nNo se ha encontrado ningún contenido con ese título.");
         }
     }
 
