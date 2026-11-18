@@ -15,6 +15,7 @@ public class MenuStreaming
             Console.WriteLine("\n----Menu Streaming-----");
             Console.WriteLine("------1. Ver Catalogo----");
             Console.WriteLine("------2. Busca por titulo----");
+            Console.WriteLine("------3. Buscar Peliculas----");
             Console.WriteLine("------0. Salir-----------");
             Console.WriteLine("Selecciona una opción:");
 
@@ -32,6 +33,9 @@ public class MenuStreaming
                     break;
                 case 2:
                 BuscarPorTitulo();
+                break;
+                case 3:
+                BuscarPeliculas();
                 break;
 
                 case 0:
@@ -80,4 +84,14 @@ public class MenuStreaming
         }
     }
 
+    public void BuscarPeliculas()
+    {
+        foreach (Contenido c in catalogo)
+        {
+            if (c is Pelicula)
+            {
+                Console.WriteLine(c.ObtenerDescripcion());
+            }
+        }
+    }
 }
