@@ -1,1 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using Menu;
+
+MenuStreaming menu = new MenuStreaming();
+menu.Iniciar();
